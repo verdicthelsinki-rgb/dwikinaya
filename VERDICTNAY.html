@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Surprise</title>
+    <style>
+        body {
+            font-family: 'times new roman', cursive, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'); /* Background lebih romantis: pasangan holding hands */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #ff69b4; /* Pink romantis */
+            text-align: center;
+            overflow-x: hidden; /* Mencegah scroll horizontal */
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+            max-width: 90%;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #ff1493; /* Deep pink */
+        }
+
+        input[type="password"] {
+            padding: 10px;
+            font-size: 1.2em;
+            border: 2px solid #ff69b4;
+            border-radius: 10px;
+            width: 80%;
+            margin-bottom: 20px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease; /* Animasi smooth */
+            margin: 10px;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background-color: #ff1493;
+            transform: scale(1.1); /* Efek zoom smooth */
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between; /* Tombol sejajar dari kiri hingga kanan */
+            align-items: center;
+            width: 100%;
+        }
+
+        .button-container button {
+            flex: 0 1 auto;
+        }
+
+        .video-container {
+            margin-top: 20px;
+            display: none; /* Hidden awalnya */
+        }
+
+        iframe {
+            width: 100%;
+            height: 315px; /* Responsive */
+            border: none;
+            border-radius: 10px;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #ff1493;
+            display: none; /* Hidden awalnya */
+        }
+
+        .photo-container {
+            margin-top: 20px;
+            display: none; /* Hidden awalnya */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .photo-container img {
+            width: 30%; /* 3 foto dalam satu baris */
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            transition: transform 0.3s ease; /* Animasi smooth pada foto */
+        }
+
+        .photo-container img:hover {
+            transform: scale(1.05); /* Efek zoom pada hover */
+        }
+
+        .heart {
+            font-size: 2em;
+            color: #ff69b4;
+            margin: 10px;
+        }
+
+        /* Responsive untuk HP: tombol vertikal di tengah */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            button {
+                font-size: 1em;
+                padding: 8px 15px;
+            }
+            .button-container {
+                justify-content: center; /* Tombol di tengah, vertikal */
+                flex-direction: column;
+            }
+            .photo-container img {
+                width: 80%; /* Foto vertikal di HP */
+            }
+            iframe {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="login" class="container">
+        <h1>❤️ Masukkan Passwordnya Cinta ❤️</h1>
+        <input type="password" id="password" placeholder="Password...">
+        <button onclick="checkPassword()">Selanjutnya 💕</button>
+    </div>
+
+    <div id="main" class="container hidden">
+        <h1>🎉 Hai Dwi Kinaya Ramadhani! 🎉</h1>
+        <div class="button-container">
+            <button onclick="showVideo()">🎥 Video YouTube</button>
+            <button onclick="showMessage()">💌 Kata-Kata Cinta</button>
+            <button onclick="showPhotos()">📸 Foto Kenangan</button>
+        </div>
+        <div class="video-container" id="video">
+            <iframe src="https://youtu.be/Ip6cw8gfHHI?si=rlP-Nf0fXDDs7T-G" allowfullscreen></iframe> <!-- Placeholder: Video bebas akses, ganti dengan ID video romantis yang Anda inginkan, contoh: https://www.youtube.com/embed/[VIDEO_ID] -->
+        </div>
+        <div class="message" id="message">
+            💕 Selamat Ulang Tahun ya sayangku semoga sayang panjang umur sehat selalu semoga sayang menjadi lebih dewasa lagi dan aku juga dah jauh juga hubungan kita semoga kita pertahankan hubungan kita ya sayang sampai selamanya maaf kadang aku banyak salah kadang aku blm bisa ngertiin sayang yang pasti aku sayang kali sama naya, selamat ulang tahun ya cantik love u Dwi Kinaya Ramadhani💕
+        </div>
+        <div class="photo-container" id="photos">
+            <img src="https://ibb.co.com/NdgvmrcD" alt="Foto Romantis 1"> <!-- Placeholder foto 1, ganti dengan URL foto Anda -->
+            <img src="https://drive.google.com/file/d/1le9hj7h_VZObWy7vve4NO9Ug-OezjqTV/view?usp=drive_link" alt="Foto Romantis 2"> <!-- Placeholder foto 2 -->
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Foto Romantis 3"> <!-- Placeholder foto 3 -->
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            if (password === '102122') {
+                document.getElementById('login').classList.add('hidden');
+                document.getElementById('main').classList.remove('hidden');
+            } else {
+                alert('Password salah, coba lagi! 😘');
+            }
+        }
+
+        function showVideo() {
+            document.getElementById('video').style.display = 'block';
+            document.getElementById('message').style.display = 'none';
+            document.getElementById('photos').style.display = 'none';
+        }
+
+        function showMessage() {
+            document.getElementById('message').style.display = 'block';
+            document.getElementById('video').style.display = 'none';
+            document.getElementById('photos').style.display = 'none';
+        }
+
+        function showPhotos() {
+            document.getElementById('photos').style.display = 'flex';
+            document.getElementById('video').style.display = 'none';
+            document.getElementById('message').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
